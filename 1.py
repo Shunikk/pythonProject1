@@ -1,7 +1,13 @@
-shopping_center = ("Галерея", "Санкт-Петербург", "Лиговский пр., 30", ["H&M", "Zara"])
-list_id_before = id(shopping_center[-1])
+array = [2, 3, 1, 4, 6, 5, 9, 8, 7]
+count = 0
 
-shopping_center[-1].append("Uniqlo")
-list_id_after = id(shopping_center[-1])
+for i in range(1, len(array)):
+    x = array[i]
+    idx = i
+    while idx > 0 and array[idx - 1] > x:
+        count += 1
+        array[idx] = array[idx - 1]
+        idx -= 1
+    array[idx] = x
 
-print( list_id_before == list_id_after )
+print(count)
